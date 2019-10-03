@@ -14,7 +14,8 @@ import com.example.space_task1.service.model.response.DataResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.utilities.view.*
 
-class PAdapter(private val item: Data, private val context: Context):
+class PAdapter(private val item: Data, private val context: Context,
+               var itemCallBack: ((item: Categories) -> Unit)? = null):
         RecyclerView.Adapter<PAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,6 +29,10 @@ class PAdapter(private val item: Data, private val context: Context):
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = item.categories!![position].name
         Picasso.get().load(item.categories[position].picture!!.thumbnailUrl).into(holder.pic)
+
+        holder.itemView.utilities.setOnClickListener {
+            itemCallBack?.invoke(item.categories[position])
+        }
     }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {

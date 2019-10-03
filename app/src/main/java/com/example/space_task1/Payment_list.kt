@@ -2,6 +2,7 @@ package com.example.space_task1
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.space_task1.service.PAdapter
+import com.example.space_task1.service.model.Companies
 import kotlinx.android.synthetic.main.payment_list_fragment.*
 
 class Payment_list : Fragment(R.layout.payment_list_fragment) {
@@ -23,7 +25,17 @@ class Payment_list : Fragment(R.layout.payment_list_fragment) {
 
             recycler_view_id.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = PAdapter(response.data, context)
+                
+                adapter = PAdapter(response.data, context, itemCallBack = { data ->
+                    val companyListFromCategory: MutableList<Companies> = arrayListOf()
+                    data.companyIds?.forEach { companyId ->
+                        viewModel.getApiResponse().value?.data?.companies?.filter { it.companyId == companyId && it.parentId == data.categoryId}?.forEach {
+                            companyListFromCategory.add(it)
+                        }
+                    }
+
+                    Log.d("size of array", companyListFromCategory.size.toString())
+                })
             }
         })
     }
