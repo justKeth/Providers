@@ -8,14 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.space_task1.R
-import com.example.space_task1.service.model.Categories
+import com.example.space_task1.service.model.Category
 import com.example.space_task1.service.model.Data
-import com.example.space_task1.service.model.response.DataResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.utilities.view.*
 
 class PAdapter(private val item: Data, private val context: Context,
-               var itemCallBack: ((item: Categories) -> Unit)? = null):
+               var itemCallBack: ((item: Category) -> Unit)? = null):
         RecyclerView.Adapter<PAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,7 +29,7 @@ class PAdapter(private val item: Data, private val context: Context,
         holder.name.text = item.categories!![position].name
         Picasso.get().load(item.categories[position].picture!!.thumbnailUrl).into(holder.pic)
 
-        holder.itemView.utilities.setOnClickListener {
+        holder.itemView.utilities.setOnClickListener {view ->
             itemCallBack?.invoke(item.categories[position])
         }
     }

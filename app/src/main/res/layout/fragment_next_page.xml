@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NextPageFragment">
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="70dp"
+        >
+
+        <ImageButton
+            android:id="@+id/image_button_id"
+            android:layout_width="15dp"
+            android:layout_height="25.5dp"
+            android:src="@drawable/arrow"
+            android:clickable="true"
+            android:layout_marginTop="25.5dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <EditText
+            android:id="@+id/edit_text_id"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:background="@drawable/edit_text"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40dp"
+            tools:text="ძებნა"
+            android:drawableLeft="@drawable/search_image_button"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/mobile_text_id"
+        tools:text="კომპანიები"
+        android:layout_marginVertical="16dp"
+        android:textStyle="bold"
+        android:textSize="17sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/utilities"
+        android:id="@+id/companies_recycler_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="6dp"/>
+
+</LinearLayout>

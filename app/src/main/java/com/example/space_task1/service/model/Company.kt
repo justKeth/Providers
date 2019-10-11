@@ -1,6 +1,10 @@
 package com.example.space_task1.service.model
 
-data class Companies(
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Company(
     val name: String?=null,
     val parentId: Int?=null,
     val order: Int?=null,
@@ -11,4 +15,4 @@ data class Companies(
     val popularity: Int?=null,
     val paymentCount: Int?=null,
     val priority: Int?=null
-)
+): Parcelable

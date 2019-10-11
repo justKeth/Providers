@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/utiliti_one_layout"
+    android:layout_marginVertical="7dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/utility_one_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/pic_style"
+        android:src="@drawable/example"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="თელასი"
+        android:lines="1"
+        android:id="@+id/utility_one_name"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:textSize="15sp"
+        android:ellipsize="end"/>
+</LinearLayout>

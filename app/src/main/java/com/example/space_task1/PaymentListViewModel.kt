@@ -13,5 +13,4 @@ class PaymentListViewModel : ViewModel() {
     fun getApiResponse(): LiveData<DataResponse> {
         return pResponse
     }
-
 }
